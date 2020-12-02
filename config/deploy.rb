@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock '3.14.1'
 
-set :application, "HappySchedule"
-set :repo_url, "git@example.com:harumisa/HappySchedule.git"
+set :application, 'HappySchedule'
+set :repo_url, 'git@github.com:harumisa/HappySchedule.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
