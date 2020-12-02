@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+}
+
+// 【index】
+.Main {
+  height: 100vh;
+  font-family: "ヒラギノ丸ゴ ProN";
+  background-image: url(https://pics.prcm.jp/akujyo/81163440/jpeg/81163440.jpeg);
+  .Header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      width: 380px;
+      height: 70px;
+      margin-left: 40px;
+      font-family: fantasy;
+      font-size: 50px;
+      text-decoration: none;
+      color: black;
+      display: inline-block;
+    }
+    .UserName {
+      width: 700px;
+      height: 50px;
+      text-align: right;
+      font-size: 17px;
+      span {
+        font-size: 40px;
+        color: maroon;
+      }
+    }
+    .ScheduleSearch {
+      width: 250px;
+      height: 80px;
+      margin-right: 20px;
+      padding-left: 15px;
+      background-image: url(素材_search.png);
+      background-size: 250px;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      &__Box {
+        display: block;
+        &--Input {
+          padding: 3px;
+          border: 1px solid orange;
+        }
+        &--Btn {
+          padding: 3px;
+          color: brown;
+          border: 1px solid orange;
+          background-color: orange;
+        }
+      }
+    }
+  }
+  .Content {
+    width: 100%;
+    height: calc(100vh - 155px);
+    display: flex;
+    justify-content: flex-start;
+    &__SideMenu {
+      width: 400px;
+      display: flex;
+      justify-content: flex-end;
+      &--Menu {
+        width: 250px;
+        height: 230px;
+        margin-top: 80px;
+        margin-right: 50px;
+        background-color:rgba(255,255,255,0.5);
+        .MenuTitle {
+          width: 250px;
+          font-family: fantasy;
+          font-size: 30px;
+          text-align: center;
+          padding-top: 35px;
+        }
+        .MenuName {
+          width: 250px;
+          height: 150px;
+          text-align: center;
+          &__Name {
+            padding: 10px;
+            &--btn {
+              font-size: 17px;
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+    &__MainContent {
+      width: calc(100vw - 400px);
+      &--Schedules {
+        height: calc(100vh - 155px);
+        overflow: scroll;
+        .Schedule {
+          width: 900px;
+          margin-bottom: 10px;
+          padding-left: 90px;
+          color: maroon;
+          position: relative;
+          display: flex;
+          &__Edit {
+            width: 300px;
+            height: 180px;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            display: flex;
+            cursor: pointer;
+            .EditIcon {
+              margin-top: 60px;
+              font-size: 25px;
+            }
+            .EditMenu {
+              display: none;
+              .DeleteText {
+                display: none;
+              }
+            }
+            &:hover {
+              width: 300px;
+              height: 180px;
+              position: absolute;
+              top: 50px;
+              right: 90px;
+              display: flex;
+              cursor: pointer;
+              .EditIcon {
+                margin-top: 60px;
+                font-size: 25px;
+              }
+              .EditMenu {
+                display: block;
+                width: 250px;
+                height: 170px;
+                padding-left: 30px;
+                background-image: url("素材_Edit.png");
+                background-size: 250px;
+                background-repeat: no-repeat;
+                .DeleteText {
+                  display: block;
+                  padding-top: 55px;
+                  padding-left: 50px;
+                  font-size: 16px;
+                  color: palevioletred;
+                  text-decoration: none;
+                }
+                .EditText {
+                  display: block;
+                  padding-top: 10px;
+                  padding-left: 50px;
+                  font-size: 16px;
+                  color: palevioletred;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+          &__Frame {
+            width: 500px;
+            height: 450px;
+            background-image: url("素材.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            &--Text {
+              width: 370px;
+              height: 250px;
+              margin: 90px 0px 0px 55px;
+              ul {
+                display: flex;
+                li {
+                  padding: 7px;
+                  display: flex;
+                  justify-content: flex-start;
+                  span {
+                    font-family: fantasy;
+                  }
+                  .CategoryIcon {
+                    margin-right: 5px;
+                    font-size: 20px;
+                    line-height: 25px;
+                  }
+                }
+                .TextDate {
+                  margin-left: 30px;
+                }
+                .TextTitle {
+                  margin-left: 36px;
+                }
+                .TextMemo {
+                  margin-left: 23px;
+                }
+              }
+            }
+          }
+        }
+        .NoScheduleMessage {
+          height: 30px;
+          margin-top: 200px;
+          padding-right: 200px;
+          font-size: 20px;
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .Footer {
+    width: 100vw;
+    height: 55px;
+    background-color:rgba(255,255,255,0.5);
+  }
+}
+
+
+// 【new,edit】
+.SchedulePostField {
+  height: 100vh;
+  font-family: "ヒラギノ丸ゴ ProN";
+  background-image: url(素材_花.jpeg);
+  background-color:rgba(255,255,255,0.3);
+  background-blend-mode: lighten;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__Return {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding: 10px;
+    border: 1px solid pink;
+    background-color: pink;
+    &--Btn {
+      text-decoration: none;
+      color: palevioletred;
+    }
+  }
+  .ScheduleForm {
+    width: 500px;
+    height: 500px;
+    background-color:rgba(255,255,255,0.7);
+    &__Name {
+      padding: 30px 0px;
+      text-align: center;
+      font-size: 20px;
+    }
+    &__Block {
+      display: flex;
+      &--Left {
+        margin: 15px 0px 15px 30px;
+        font-family: fantasy;
+        .LeftLabelDate {
+          margin-right: 15px;
+        }
+        .LeftLabelTitle {
+          margin-right: 15px;
+        }
+        .LeftLabelCategory {
+          margin-right: 15px;
+        }
+        .LeftLabelMemo {
+          margin-right: 15px;
+        }
+      }
+      &--Right {
+        display: flex;
+        align-items: center;
+        .RightDate {
+          margin-left: 30px;
+          &__field {
+            padding: 3px;
+            border: 1px solid palevioletred;
+            display: block;
+          }
+        }
+        .RightTitle {
+          margin-left: 35px;
+          &__field {
+            padding: 3px;
+            width: 300px;
+            border: 1px solid palevioletred;
+            display: block;
+          }
+        }
+        .RightCategory {
+          width: 360px;
+          height: 70px;
+        }
+        .RightMemo {
+          margin-left: 23px;
+          margin-top: 15px;
+          &__field {
+            width: 300px;
+            height: 100px;
+            padding: 3px;
+            border: 1px solid palevioletred;
+          }
+        }
+      }
+      &--Btn {
+        margin: 0 auto;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        .FormBtn {
+          padding: 10px;
+          color: palevioletred;
+          border: 1px solid pink;
+          background-color: pink;
+        }
+      }
+    }
+  }
+}

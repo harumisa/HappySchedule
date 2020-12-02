@@ -1,0 +1,88 @@
+.Main
+  .Header
+    = link_to root_path do
+      %h1 Happy Schedule
+    .UserName
+      %span
+        = current_user.name
+      さんのスケジュール
+    .ScheduleSearch
+      = form_with url: search_schedules_path, method: :get, class: 'ScheduleSearch__Box', local: true do |f|
+        = f.text_field :keyword, class: 'ScheduleSearch__Box--Input', placeholder: 'スケジュールを探す'
+        = f.submit '検索', class: 'ScheduleSearch__Box--Btn'
+  .Content
+    .Content__SideMenu
+      .Content__SideMenu--Menu
+        .MenuTitle
+          M e n u
+        %ul.MenuName
+          %li.MenuName__Name
+          = link_to new_schedule_path, class: 'MenuName__Name--btn' do
+            新しい予定を作成する
+          %li.MenuName__Name
+          = link_to edit_user_path(current_user), class: 'MenuName__Name--btn' do
+            アカウント管理
+    .Content__MainContent
+      .Content__MainContent--Schedules
+        - if @schedules.length == 0
+          .NoScheduleMessage
+            一致するスケジュールはありません
+        - else
+          - @schedules.each do |schedule|
+            .Schedule
+              .Schedule__Frame
+                .Schedule__Frame--Text
+                  %ul
+                    %li
+                      %span date　
+                    %li.TextDate
+                      = schedule.date.strftime('%Y年%m月%d日')
+                  %ul
+                    %li
+                      %span title　
+                    %li.TextTitle
+                      = schedule.title
+                  %ul
+                    %li
+                      %span category　
+                    %li.TextCategory
+                      - if schedule.category == 'デート'
+                        = icon('fa', 'heart', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == '旅行'
+                        = icon('fa', 'suitcase', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == 'ショッピング'
+                        = icon('fas', 'shopping-bag', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == 'イベント'
+                        = icon('fas', 'music', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == 'おでかけ'
+                        = icon('fa', 'car', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == '病院'
+                        = icon('fas', 'hospital-alt', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == '学校'
+                        = icon('fas', 'graduation-cap', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == '仕事'
+                        = icon('fa', 'desktop', class: 'CategoryIcon')
+                        = schedule.category
+                      - if schedule.category == '記念日'
+                        = icon('fas', 'birthday-cake', class: 'CategoryIcon')
+                        = schedule.category
+                  %ul.TextMemo
+                    %li
+                      %span memo　
+                    %li.TextMemo
+                      = schedule.memo
+              .Schedule__Edit
+                = icon('fas', 'edit', class: 'EditIcon')
+                .EditMenu
+                  = link_to schedule_path(schedule.id), class: 'DeleteText', method: :delete do
+                    予定を削除する
+                  = link_to edit_schedule_path(schedule.id), class: 'EditText' do
+                    予定を編集する
+  .Footer

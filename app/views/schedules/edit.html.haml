@@ -1,0 +1,66 @@
+.SchedulePostField
+  = form_with model: @schedule, class: 'ScheduleForm', local: true do |f|
+    .ScheduleForm__Name
+      予定を編集
+    .ScheduleForm__Block
+      .ScheduleForm__Block--Left
+        = f.label :date, 'date', class: 'LeftLabelDate'
+      .ScheduleForm__Block--Right
+        .RightDate
+          = f.date_field :date, class: 'RightDate__field'
+    .ScheduleForm__Block
+      .ScheduleForm__Block--Left
+        = f.label :title, 'title', class: 'LeftLabelTitle'
+      .ScheduleForm__Block--Right
+        .RightTitle
+          = f.text_field :title, class: 'RightTitle__field'
+    .ScheduleForm__Block
+      .ScheduleForm__Block--Left
+        = f.label :category, 'category', class: 'LeftLabelCategory'
+      .ScheduleForm__Block--Right
+        .RightCategory
+          %label
+            = f.radio_button :category, 'デート', class: 'RightCategory__field'
+            = icon('fa', 'heart')
+            デート　
+          %label
+            = f.radio_button :category, '旅行', class: 'RightCategory__field'
+            = icon('fa', 'suitcase')
+            旅行　
+          %label
+            = f.radio_button :category, 'ショッピング', class: 'RightCategory__field'
+            = icon('fas', 'shopping-bag')
+            ショッピング　
+          %label
+            = f.radio_button :category, 'イベント', class: 'RightCategory__field'
+            = icon('fas', 'music')
+            イベント　
+          %label
+            = f.radio_button :category, 'おでかけ', class: 'RightCategory__field'
+            = icon('fa', 'car')
+            おでかけ　
+          %label
+            = f.radio_button :category, '病院', class: 'RightCategory__field'
+            = icon('fas', 'hospital-alt')
+            病院　　
+          %label
+            = f.radio_button :category, '学校', class: 'RightCategory__field'
+            = icon('fas', 'graduation-cap')
+            学校　
+          %label
+            = f.radio_button :category, '仕事', class: 'RightCategory__field'
+            = icon('fa', 'desktop')
+            仕事　
+          %label
+            = f.radio_button :category, '記念日', class: 'RightCategory__field'
+            = icon('fas', 'birthday-cake')
+            記念日　
+    .ScheduleForm__Block
+      .ScheduleForm__Block--Left
+        = f.label :memo, 'memo', class: 'LeftLabelMemo'
+      .ScheduleForm__Block--Right
+        .RightMemo
+          = f.text_area :memo, class: 'RightMemo__field', placeholder: ' 例）まなと10時に新宿で待ち合わせ'
+    .ScheduleForm__Block
+      .ScheduleForm__Block--Btn
+        = f.submit '予定を更新', class: 'FormBtn'

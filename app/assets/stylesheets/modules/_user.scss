@@ -1,0 +1,74 @@
+.AccountPage {
+  width: 100vw;
+  height: 100vh;
+  padding: 180px 300px 0px 300px;
+  font-family: "ヒラギノ丸ゴ ProN";
+  background-image: url(素材_花2.jpeg);
+  background-size: cover;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.AccountPage__title {
+  width: 50%;
+  margin-top: 100px;
+  font-size: 14px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    font-size: 35px;
+  }
+
+  .Button {
+    margin-top: 40px;
+    vertical-align: middle;
+    padding-top: 15px;
+    color: palevioletred;
+    background-color: pink;
+    display: inline-block;
+  }
+}
+
+.AccountPage__form {
+  width: 300px;
+  text-align: center;
+}
+
+.FormField {
+  margin-bottom: 10px;
+  &__label--normal {
+    padding: 10px 0;
+    text-align: start;
+    font-size: 14px;
+    i {
+      font-size: 11px;
+    }
+  }
+  &__input--normal {
+    input {
+      border: 1px solid palevioletred;
+      width: 100%;
+      padding: 10px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.Button {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  border: none;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.UserButton {
+  margin-top: 20px;
+  color: palevioletred;
+  background-color: pink;
+}
+
+
