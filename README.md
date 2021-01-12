@@ -1,28 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ＜アプリ名＞
+HappySchedule
 
-Things you may want to cover:
+## ＜概要＞
+スケジュール管理アプリです。
+まず初めにユーザー登録をしていただくことによりご利用いただけます。
+日々のスケジュールを気軽にタスク管理感覚でメモに残していくことができます。
+スケジュールは直近の予定から順に確認でき、スケジュールのカテゴリーもアイコンで一目でわかります。
+スケジュール内容の変更、削除もスケジュールの右上にあるアイコンにマウスオーバーすることによりメニューが現れますので簡単に行えます。
+ブラウザ右上にある検索窓よりスケジュールの検索も可能です。
 
-* Ruby version
+## ＜制作背景(意図)＞
+普段、自身のタスクや予定の管理をスマホのメモを使って管理していましたが、その時に感じていた、
+「直近順で確認できたら良いな」
+「検索できたら良いな」
+「もう少し可愛いデザインのメモがあれば良いな」
+を形にしました。
 
-* System dependencies
+## ＜工夫したポイント＞
+・直近のスケジュールから確認できるように、スケジュールの日にちが古いものから順に並ぶようにしました。
+・登録したスケジュールがどんな内容か一目でわかる様にカテゴリーを設定できるようにしました。また、スケジュールを楽しく、可愛く見せる為に、カテゴリーに合うアイコンを付けました。
+・スケジュールの編集ボタンと削除ボタンは必要な時にだけ表示させたかったので、隠しておき、右上にあるアイコンにマウスオーバーすることによりメニューが現れるようにしました。
+・jQueryを利用し、検索窓に文字が入力される毎にスケジュールの検索結果が表示されるようにしました。
 
-* Configuration
+## ＜使用技術(開発環境)＞
+Ruby・Ruby on Rails・JavaScript・jQuery・Haml・SCSS
 
-* Database creation
+## ＜課題や今後実装したい機能＞
+・現在スケジュールを文字検索することは可能なので、カテゴリー別や日にち別でも見れるようにしたい。
+・アプリの構成をタスクメモ形式にしているが、タスクが増えてくると一覧で見たい時も出てくると思うので、カレンダー形式に切り替えもできるようにしたい。
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+## ＜DB設計＞
 
 ## schedulesテーブル
 
@@ -37,7 +46,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-
 ## usersテーブル
 
 |Column|Type|Option|
@@ -48,4 +56,3 @@ Things you may want to cover:
 
 ### Association
 - has_many :schedules
-
